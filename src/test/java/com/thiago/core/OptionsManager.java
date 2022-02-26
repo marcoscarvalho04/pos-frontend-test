@@ -19,7 +19,7 @@ public class OptionsManager {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         //options.setHeadless(true);
-        System.setProperty("webdriver.chrome.driver",new File("src/test/resources/chromedriver").getAbsolutePath());
+        System.setProperty("webdriver.chrome.driver",new File("src/test/resources/chromedriver.exe").getAbsolutePath());
         return options;
     }
  

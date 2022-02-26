@@ -32,13 +32,28 @@ public abstract class CorePage<T> {
 	private String windowHandleJanelaInicial;
 	
 	public WebDriver driver;
-	
+
 	public CorePage() {
+
+		//TLDriverFactory.setDriver("chrome");
+		this.driver = TLDriverFactory.getDriver();
+		PageFactory.initElements(this.driver, this);
+	}
+
+	public CorePage(String browser) {
+		TLDriverFactory.setDriver(browser);
 		this.driver = TLDriverFactory.getDriver();
 		PageFactory.initElements(this.driver, this);
 	}
 	
 	public T openPage(Class<T> clazz, String BASE_URL){
+
+		if (this.driver == null ){
+
+			TLDriverFactory.setDriver("chrome");
+			this.driver = TLDriverFactory.getDriver();
+
+		}
 		T page = PageFactory.initElements(this.driver, clazz);
 		this.driver.get(BASE_URL + getUrl());
 		return page;

@@ -15,7 +15,7 @@ public class PageGuruSucess extends CorePage<PageGuruSucess>{
 		this.driver = TLDriverFactory.getDriver();
 		PageFactory.initElements(this.driver, this);
 	}
-	@FindBy(xpath = "/html/body/div[2]/div/div/h3")
+	@FindBy(xpath = "/html/body/div[4]/div/div")
 	private WebElement msgSucesso;
 	
 	public void validarAcessoOK() {
